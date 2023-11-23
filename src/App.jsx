@@ -5,8 +5,11 @@ import MessageList from "./MessageList";
 import NewMessage from "./NewMessage";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [messages, setMessages] = useState([]);
+  const [search, setSearch] = useState("");
 
+  
   return (
     <>
       <div>
