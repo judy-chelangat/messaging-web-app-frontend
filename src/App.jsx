@@ -9,31 +9,47 @@ function App() {
   const [messages, setMessages] = useState([]);
   const [search, setSearch] = useState("");
 
-  
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+  //fetching the messages from the api
+  useEffect(
+    ()=>{
+      fetch('/')
+      .then((r)=>r.json())
+      .then((messages)=>setMessages(messages))
+    },[]
+  );
 
-export default App
+  //function to handle the new message
+  function handleAddMessage(newMessage){
+    setMessages([...messages,newMessage])
+  }
+  //deleting the message
+  function handleDeleteMessage(id){
+    const updatedMessages=messages.filter((message)=>message.id !== id);
+    setMessages(updatedMessages)
+  }
+  //updating the messages
+  function handleUpdateMessage(updatedMessageObj){
+    const updatedMessages = messages.map((message) =>{
+      if(message.id === updatedMessageObj.id){
+        return updatedMessageObj;
+      }else{
+        return message;
+      }
+    })
+    setMessages(updatedMessages)
+  }
+
+  //for the search functionality of filter
+  const displayedMessages=messages.filter((message)=>{
+    message.body.toLowerCase().includes(search.toLowerCase())
+  })
+
+
+  return (
+    <main>
+      
+    </main>
+  )
+
+}
+export default App;
