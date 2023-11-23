@@ -8,7 +8,8 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [messages, setMessages] = useState([]);
   const [search, setSearch] = useState("");
-
+  
+  const testUser = { username: "Duane" }; // test user 
   //fetching the messages from the api
   useEffect(
     ()=>{
@@ -46,8 +47,16 @@ function App() {
 
 
   return (
-    <main>
-      
+    <main className={isDarkMode? 'dark-mode':''}>
+      <Header isDarkMode={isDarkMode} onToggleDarkMode={setIsDarkMode} />
+      <Search search={search} onSearchChange={setSearch} />
+      <MessageList
+        messages={displayedMessages}
+        currentUser={testUser}
+        onMessageDelete={handleDeleteMessage}
+        onUpdateMessage={handleUpdateMessage}
+      />
+      <NewMessage currentUser={testUser} onAddMessage={handleAddMessage} />
     </main>
   )
 
