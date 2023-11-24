@@ -2,7 +2,7 @@ import React ,{ useState,useEffect } from 'react'
 import Header from "./Header";
 import Search from "./Search";
 import MessageList from "./MessageList";
-import NewMessage from "./NewMessage";
+import NewMessage from './NewMessage';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
