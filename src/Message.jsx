@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import EditMessage from "./EditMessage";
 
 function Message({ message, currentUser, onMessageDelete, onUpdateMessage }) {
+  console.log("Message prop:", message);
   const [isEditing, setIsEditing] = useState(false);//state variable isediting
 
   const { id, username, body, created_at: createdAt } = message; //destructures the message prop 
