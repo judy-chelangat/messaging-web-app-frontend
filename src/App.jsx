@@ -13,11 +13,16 @@ function App() {
   //fetching the messages from the api
   useEffect(
     ()=>{
-      fetch('/http://127.0.0.1:5555/messages')
+      fetch('http://127.0.0.1:5555/messages')
       .then((r)=>r.json())
-      .then((messages)=>setMessages(messages))
-    },[]
-  );
+      .then((fetchedMessages) => {
+        console.log("Fetched messages:", fetchedMessages);
+        setMessages(fetchedMessages);
+      })
+      .catch((error) => {
+        console.error("Error fetching messages:", error);
+      });
+  }, []);
 
   //function to handle the new message
   function handleAddMessage(newMessage){
@@ -41,11 +46,10 @@ function App() {
   }
 
   //for the search functionality of filter
-  const displayedMessages=messages.filter((message)=>{
-    message.body.toLowerCase().includes(search.toLowerCase())
-  })
-
-
+  const displayedMessages = messages.filter((message) => {
+    return message.body.toLowerCase().includes(search.toLowerCase());
+  });
+  
   return (
     <main className={isDarkMode? 'dark-mode':''}>
       <Header isDarkMode={isDarkMode} onToggleDarkMode={setIsDarkMode} />
