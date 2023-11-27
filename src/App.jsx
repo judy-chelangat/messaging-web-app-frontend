@@ -13,7 +13,7 @@ function App() {
   //fetching the messages from the api
   useEffect(
     ()=>{
-      fetch('/')
+      fetch('/http://127.0.0.1:5555/messages')
       .then((r)=>r.json())
       .then((messages)=>setMessages(messages))
     },[]
