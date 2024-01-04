@@ -49,7 +49,7 @@ Ensure you have the following dependencies installed on your local machine:
     Judy Chelangat
     
  ###   Contact
-For any inquiries or support, please contact us at judieysiggy@gmail.com.
+For any inquiries or support, please contact us at judieysiggy@gmail.com
 
 
 
