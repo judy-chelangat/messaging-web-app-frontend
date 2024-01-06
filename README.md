@@ -50,8 +50,5 @@ Ensure you have the following dependencies installed on your local machine:
     
  ###   Contact
 For any inquiries or support, please contact us at judieysiggy@gmail.com
-
-
-
    ### License
     This project is licensed under the MIT License.
