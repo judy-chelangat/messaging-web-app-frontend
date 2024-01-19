@@ -116,8 +116,8 @@ header h1 {
 .toggle-switch label::after {
   content: "";
   position: absolute;
-  width: 18px;
-  height: 18px;
+  width: 17px;
+  height: 17px;
   line-height: 20px;
   padding-left: 2px;
   border-radius: 50%;
